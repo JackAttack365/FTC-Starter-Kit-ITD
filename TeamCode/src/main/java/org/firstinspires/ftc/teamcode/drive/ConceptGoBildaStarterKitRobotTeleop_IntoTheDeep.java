@@ -230,14 +230,12 @@ public class ConceptGoBildaStarterKitRobotTeleop_IntoTheDeep extends LinearOpMod
             three if statements, then it will set the intake servo's power to multiple speeds in
             one cycle. Which can cause strange behavior. */
 
-            if (gamepad1.a) {
+            if (gamepad2.left_stick_y >= 0.1) {
                 intake.setPower(INTAKE_COLLECT);
-            }
-            else if (gamepad1.x) {
-                intake.setPower(INTAKE_OFF);
-            }
-            else if (gamepad1.b) {
+            } else if (gamepad2.left_stick_y <= -.1) {
                 intake.setPower(INTAKE_DEPOSIT);
+            } else {
+                intake.setPower(0);
             }
 
 
